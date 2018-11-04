@@ -1,0 +1,75 @@
+.header {
+  a {
+    // font-weight: map-get($base, font-weight);
+    font-weight: 700;
+    text-decoration: none;
+    //@include link-colors($text-color, $main-color-1, $main-color-1);
+    @include link-colors(#848484, $main-color-1, $main-color-1);
+  }
+
+  .active a {
+    //font-weight: map-get($base, font-weight-bold);
+    font-weight: 700;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #333e4c;
+    font-size: 20px;
+    @include link-colors($text-color-d, $main-color-1, $main-color-1);
+  }
+
+  & > .main > .logo {
+    float: left;
+    @include menu(3, 0);
+    @include align-items(center);
+    height: map-get($layout, header-height);
+
+    & > svg {
+      margin-right: 0.8rem;
+      vertical-align: middle;
+      // width: map-get($base, font-size-h4) * 1.6;
+      // height: map-get($base, font-size-h4) * 1.6;
+      width: map-get($base, font-size-h4) * 3.6;
+      height: map-get($base, font-size-h4) * 3.6;
+      @include media-breakpoint-down(sm) {
+        margin-right: 0.5rem;
+        // width: map-get($base, font-size-h4) * 1.2;
+        // height: map-get($base, font-size-h4) * 1.2;
+        width: map-get($base, font-size-h4) * 3.2;
+        height: map-get($base, font-size-h4) * 3.2;
+      }
+    }
+
+    & > a {
+      display: inline-block;
+      font-size: map-get($base, font-size-h4);
+      @include media-breakpoint-down(sm) {
+        font-size: map-get($base, font-size-h4-small);
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      float: none;
+      height: map-get($layout, header-height-sm);
+    }
+  }
+
+  & > .main > nav {
+    display: block;
+    float: right;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+
+    ul {
+      margin: 0;
+      @include menu(3, 2, nowrap);
+      @include align-items(center);
+      height: map-get($layout, header-height);
+      @include media-breakpoint-down(sm) {
+        height: auto;
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      float: none;
+    }
+  }
+}
